@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native';
 import React from 'react';
 import globalStyles from '../styles/globalStyles';
 //
@@ -11,38 +18,39 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const CoursesItem = props => {
   return (
-    <View style={styles.courseContainer}>
-      <View style={styles.imageContainer}>
-        <Image source={{uri: props.imagee}} style={styles.image} />
-      </View>
-      <View style={styles.CourseContainerDetails}>
-        <Text style={styles.CourseTitle}>Titre: {props.titre}</Text>
-        <Text style={styles.CoursePrice}> {props.prix.toFixed(2)} &euro;</Text>
-       
-      </View>
-      <View style={styles.iconContainer}>
-        {/* <FontAwesome5 name={'comments'} 
+    <TouchableHighlight
+      onPress={props.viewDetails}
+      underlayColor={globalStyles.green}>
+      <View style={styles.courseContainer}>
+        <View style={styles.imageContainer}>
+          <Image source={{uri: props.imagee}} style={styles.image} />
+        </View>
+        <View style={styles.CourseContainerDetails}>
+          <Text style={styles.CourseTitle}>Titre: {props.titre}</Text>
+          <Text style={styles.CoursePrice}>
+            {' '}
+            {props.prix.toFixed(2)} &euro;
+          </Text>
+        </View>
+        <View style={styles.iconContainer}>
+          {/* <FontAwesome5 name={'comments'} 
               size={50} solid
             />
             <FontAwesome5 name={'comments'} 
               size={50} solid
             />
             */}
-        {/* mettre de touchable opacity pour les rendre cliquabe  */}
-        {/* touchablehighlight : element cliquable  */}
-        <TouchableOpacity
-          onPress={props.viewDetails}
-        
-        >
-          <Text style={styles.iconReplaceIcons}>Voir </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        onPress={props.OnAddToCart}
-        >
-          <Text style={styles.iconReplaceIcons}>Panier </Text>
-        </TouchableOpacity>
+          {/* mettre de touchable opacity pour les rendre cliquabe  */}
+          {/* touchablehighlight : element cliquable  */}
+          <TouchableOpacity>
+            <Text style={styles.iconReplaceIcons}>Voir plus </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={props.OnAddToCart}>
+            <Text style={styles.iconReplaceIcons}>Panier </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
@@ -58,6 +66,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: '100%',
     height: '60%',
+    borderTopLeftRadius:10, 
+    borderTopRightRadius:10,
+    overflow:"hidden", 
+    
   },
   image: {
     width: '100%',

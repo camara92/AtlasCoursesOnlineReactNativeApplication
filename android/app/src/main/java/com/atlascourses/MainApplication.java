@@ -13,7 +13,7 @@ import com.atlascourses.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 // daouda icons 
-import com.oblador.vectoricons.VectorIconsPackage;
+// import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,7 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
-          packages.Add(new VectorIconsPackage());
+          // packages.Add(new VectorIconsPackage());
           return packages;
         }
 
