@@ -29,6 +29,7 @@ const CoursesItem = props => {
             />
             */}
         {/* mettre de touchable opacity pour les rendre cliquabe  */}
+        {/* touchablehighlight : element cliquable  */}
         <TouchableOpacity
           onPress={props.viewDetails}
         
