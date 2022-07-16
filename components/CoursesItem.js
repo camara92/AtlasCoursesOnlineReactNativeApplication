@@ -43,7 +43,7 @@ const CoursesItem = props => {
           {/* mettre de touchable opacity pour les rendre cliquabe  */}
           {/* touchablehighlight : element cliquable  */}
           <TouchableOpacity>
-            <Text style={styles.iconReplaceIcons}>Voir plus </Text>
+            <Text style={styles.iconReplaceIcons}>Voir </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={props.OnAddToCart}>
             <Text style={styles.iconReplaceIcons}>Panier </Text>
