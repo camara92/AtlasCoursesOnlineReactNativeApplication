@@ -14,12 +14,18 @@ const Landing = ({navigation}) => {
       alert("cours ajouté au panier. Merci. ")
     }
     const existingCourses= useSelector(state=>state.courses.existingCourses); 
+    // une fois selectionné les cours 
+    const coursesToDisplay= existingCourses.filter( course=>course.selected === false);
     // condition 
-    if(existingCourses.length){
+    // if(existingCourses.length){
+      // but : retirer les courses selectionné en true 
+
+    if(coursesToDisplay.length){
 
       return (
         <FlatList
-          data= {existingCourses}
+          // data= {existingCourses}
+          data= {coursesToDisplay}
           renderItem={({item})=>(
               <CoursesItem 
              
