@@ -35,18 +35,18 @@ function AppNav() {
       <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+       
+          name="Landing"
+          options={{ title: "Landing" }}
+          component={Landing}
+        />
+        <Stack.Screen
           name="Cart"
           options={{ title: "Cart" }}
           component={Cart}
         />
         <Stack.Screen
-       
-          name="Home"
-          options={{ title: "Landing" }}
-          component={Landing}
-        />
-        <Stack.Screen
-          name="CourseInfo"
+          name="Details"
           options={{ title: "CourseInfo" }}
           component={CourseInfo}
         />

@@ -5,7 +5,7 @@ import EmptyMsg from '../components/EmptyMsg';
 import { useSelector } from 'react-redux';
 import CoursesItem from '../components/CoursesItem';
 
-const Landing = () => {
+const Landing = ({navigation}) => {
     const existingCourses= useSelector(state=>state.courses.existingCourses); 
     // condition 
     if(existingCourses.length){
@@ -19,7 +19,10 @@ const Landing = () => {
               titre={item.title}
               imagee={item.image}
               prix={item.price}
-              viewDetails={()=>alert("Details")}
+              // viewDetails={()=>alert("Details")}
+              viewDetails={()=> navigation.navigate('Details', {
+                courseId: item.id
+              })}
               OnAddToCart={()=>alert("Panier")}
   
               />
