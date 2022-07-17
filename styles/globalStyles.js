@@ -5,7 +5,7 @@ export default {
     darkGrey: "#333", 
     red: "red", 
     dimGrey: "dimgray", 
-    lightOrange: "moccasin"
-
+    lightOrange: "moccasin",
+    orange: "orange"
 
 }

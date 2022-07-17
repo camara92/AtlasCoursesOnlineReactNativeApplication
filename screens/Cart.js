@@ -1,19 +1,79 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { useSelector } from 'react-redux';
-
+import {useSelector} from 'react-redux';
+// affichage des courses ajoutés
+import EmptyMsg from '../components/EmptyMsg';
+import CoursesInCart from '../components/CoursesInCart';
+import globalStyles from '../styles/globalStyles';
 const Cart = () => {
-  const cartCourses= useSelector(state=>state.cart.cartCourses); 
-  const total= useSelector(state=>state.cart.total); 
-  console.log(cartCourses)
-  console.log(total)
+  const cartCourses = useSelector(state => state.cart.cartCourses);
+  const total = useSelector(state => state.cart.total);
+  console.log(cartCourses);
+  console.log(total);
   return (
-    <View>
-      <Text>Bonjour CAMARA Daouda </Text>
+    <View style={styles.cartContainer}>
+      {cartCourses.length > 0 ? (
+        <View>
+          <FlatList
+            data={cartCourses}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => (
+              <CoursesInCart
+                title={item.title} 
+                price={item.price}
+                onDelete={() => alert('effacer le course ')}
+              />
+            )}
+          />
+          <View style={styles.totalContainer}>
+            <Text style={styles.totalText}>
+              Total :
+              <Text style={styles.totalPrice}>{total.toFixed(2)}&euro;</Text>
+            </Text>
+          </View>
+          <TouchableOpacity 
+          onPress={ ()=>alert("payer ")}
+          >
+            <View style={styles.btnAddPaymentText}>
+              <Text
+               style={styles.btnAddPayment}
+               >Payer</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+      ) : (
+        <EmptyMsg text="Panier vide !" />
+      )
+      }
+      {/* <Text>
+        Cart
+      </Text> */}
     </View>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  cartContainer: {
+    margin: 20,
+  },
+  totalContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 19,
+  },
+  totalText: {
+    fontWeight: 'bold',
+    fontSize: 19,
+  },
+  totalPrice: {
+    color: globalStyles.green,
+  },
+  btnAddPayment: {
+    paddingVertical:9,
+    paddingHorizontal:25, 
+    backgroundColor:globalStyles.orange }
+});
