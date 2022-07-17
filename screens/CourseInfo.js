@@ -16,7 +16,7 @@ const CourseInfo = ({navigation, route}) => {
     dispach(addToCart(SelectedCourse))
     // revenir à la page précedente :
     navigation.goBack(); 
-    alert("Cours ajouté au panier Merci de votre confiance. "); 
+    alert("Formation ajouté au panier Merci de votre confiance. "); 
   }
   // recuperer les cours selon id
   const courseId = route.params.courseId;
