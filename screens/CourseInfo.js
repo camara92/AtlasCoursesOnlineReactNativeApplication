@@ -20,6 +20,7 @@ const CourseInfo = ({navigation, route}) => {
     <View>
       <Text>CourseInfo</Text>
       <Text>Description : { SelectedCourse.description }</Text>
+      <Text>Prix de la formation  : { SelectedCourse.price }&euro;</Text>
     </View>
   )
 }
