@@ -37,7 +37,7 @@ function AppNav() {
         <Stack.Screen
        
           name="Landing"
-          options={{ title: "Landing" }}
+          options={{ title: "Cours" }}
           component={Landing}
         />
         <Stack.Screen
@@ -47,7 +47,7 @@ function AppNav() {
         />
         <Stack.Screen
           name="Details"
-          options={{ title: "CourseInfo" }}
+          options={{ title: "Détails" }}
           component={CourseInfo}
         />
       </Stack.Navigator>
