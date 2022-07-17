@@ -2,10 +2,16 @@ import React from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 // import text if data empty 
 import EmptyMsg from '../components/EmptyMsg';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CoursesItem from '../components/CoursesItem';
 
 const Landing = ({navigation}) => {
+    // hook dispach pour l'ajout de ours 
+    const dispach = useDispatch(); 
+    const handleAddToCart =(course) =>{
+      dispach(addToCart(course));
+      alert("cours ajouté au panier. Merci. ")
+    }
     const existingCourses= useSelector(state=>state.courses.existingCourses); 
     // condition 
     if(existingCourses.length){
@@ -24,7 +30,8 @@ const Landing = ({navigation}) => {
                 courseId: item.id,
                 title: item.title
               })}
-              OnAddToCart={()=>alert("Panier")}
+              OnAddToCart={()=>handleAddToCart(item)}
+              // OnAddToCart={()=>alert("Panier")}
   
               />
           )}
