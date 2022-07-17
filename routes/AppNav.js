@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,
+  View,Button
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -26,6 +26,11 @@ import Cart from '../screens/Cart';
 import CourseInfo from '../screens/CourseInfo';
 import Landing from '../screens/Landing';
 import globalStyles from '../styles/globalStyles';
+import { HeaderButtons, Item} from 'react-navigation-header-buttons';
+
+// import de headerIcon
+import CustomHeaderIcon from '../components/CustomHeaderIcon';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -35,14 +40,37 @@ function AppNav() {
       <Stack.Navigator
       // style header 
       
-    screenOptions={{
+    screenOptions={
+      ({navigation})=> (
+        {
       headerStyle: {
         backgroundColor: globalStyles.green
       }, 
       headerTitleStyle:{fontWeight:"bold" }, 
-      headerTintColor: globalStyles.white
+      headerTintColor: globalStyles.white, 
+      // les icones à droit du header 
+      headerRight:()=>(
+        // <HeaderButtons>
+        //   <Item 
+
+        //     title="Panier" 
+        //     iconName = "card"
+
+        //   />
+        // </HeaderButtons>
+        <Button 
+              style={styles.btnheader}
+              title="🛒"
+              color="white"
+              // onPress={() => alert('Bouton qui remplace l\'icon panier à voir ultérieurement')}
+              onPress={() => navigation.navigate('Cart')}
+            />
+      )
       
-    }}
+    }
+      )
+  
+    }
       
       >
         <Stack.Screen
@@ -82,6 +110,10 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  btnheader:{
+    color: "red"
+  }
+ 
 });
 
 export default AppNav;
