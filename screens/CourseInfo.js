@@ -1,4 +1,7 @@
-import {StyleSheet, Text, View, ScrollView, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Image, Button,
+
+TouchableOpacity
+} from 'react-native';
 import React, {useEffect} from 'react';
 // import icons 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -51,7 +54,17 @@ const CourseInfo = ({navigation, route}) => {
                 title="Retour"
                 size={24}
                 onPress={() => navigation.goBack('Cart')}
-                 >Retour</Button>
+                 >Retour
+                 
+                 </Button>
+                 <TouchableOpacity 
+                  onPress={() => alert('Ajouter le cours dans mon panier ')}
+                 >
+
+                    <View style={styles.btnAddToCart}>
+                        <Text>Ajouter au panier </Text>
+                    </View>
+                 </TouchableOpacity>
             
                  {/* /> */}
           </View>
@@ -112,5 +125,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30
 
 
+  },
+  btnAddToCart:{
+    borderRadius:10, 
+    paddingVertical: 9, 
+    paddingHorizontal:25, 
+    backgroundColor:globalStyle.lightOrange
   }
 });
