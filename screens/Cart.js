@@ -28,10 +28,11 @@ const Cart = () => {
           <View style={styles.totalContainer}>
             <Text style={styles.totalText}>
               Total :
-              <Text style={styles.totalPrice}>{total.toFixed(2)}&euro;</Text>
+              <Text style={styles.totalPrice}>
+              {total.toFixed(2)}&euro;
+              </Text>
             </Text>
-          </View>
-          <TouchableOpacity 
+            <TouchableOpacity 
           onPress={ ()=>alert("payer ")}
           >
             <View style={styles.btnAddPaymentText}>
@@ -40,6 +41,16 @@ const Cart = () => {
                >Payer</Text>
             </View>
           </TouchableOpacity>
+          </View>
+          {/* <TouchableOpacity 
+          onPress={ ()=>alert("payer ")}
+          >
+            <View style={styles.btnAddPaymentText}>
+              <Text
+               style={styles.btnAddPayment}
+               >Payer</Text>
+            </View>
+          </TouchableOpacity> */}
         </View>
 
       ) : (
@@ -54,7 +65,8 @@ const Cart = () => {
 };
 
 export default Cart;
-
+// pour diminuer ou donner de l'espace au bouton supprimer
+// on peut directement jouer sur le pourcentage des widths du titre et prix 
 const styles = StyleSheet.create({
   cartContainer: {
     margin: 20,
@@ -75,5 +87,11 @@ const styles = StyleSheet.create({
   btnAddPayment: {
     paddingVertical:9,
     paddingHorizontal:25, 
-    backgroundColor:globalStyles.orange }
+    backgroundColor:"green",
+  textAlign:"center",
+  fontWeight:"bold", 
+  color:globalStyles.white,
+  fontSize:20
+
+  }
 });
