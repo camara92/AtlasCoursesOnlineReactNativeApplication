@@ -49,20 +49,19 @@ const CourseInfo = ({navigation, route}) => {
           <View style={styles.footerBottom}>
                 {/* encore des icons  */}
                 {/* <FontAwesome5  */}
-                <Button
-                name ="arrow-back"
-                title="Retour"
-                size={24}
+                <TouchableOpacity 
                 onPress={() => navigation.goBack('Cart')}
-                 >Retour
-                 
-                 </Button>
+                 >
+                 <View style={styles.btngoBack}>
+                        <Text style={styles.textRetour}>Retour </Text>
+                    </View>
+                 </TouchableOpacity>
                  <TouchableOpacity 
                   onPress={() => alert('Ajouter le cours dans mon panier ')}
                  >
 
                     <View style={styles.btnAddToCart}>
-                        <Text>Ajouter au panier </Text>
+                        <Text style={styles.btntextAdd}>Ajouter au panier </Text>
                     </View>
                  </TouchableOpacity>
             
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
   }
   , footerContainer:{
     height:"20%", 
-    backgroundColor:"red"
+    backgroundColor: globalStyle.lightGrey
   }
   
   , footerTop:{
@@ -109,11 +108,13 @@ const styles = StyleSheet.create({
   }, 
   coursePriceWrapper:{
     paddingRight:40, 
+    
 
   }, 
   coursePrice:{
     fontSize: 24, 
-    color: globalStyle.green, 
+    color: globalStyle.red, 
+    
 
   }, 
   footerBottom:{
@@ -130,6 +131,24 @@ const styles = StyleSheet.create({
     borderRadius:10, 
     paddingVertical: 9, 
     paddingHorizontal:25, 
-    backgroundColor:globalStyle.lightOrange
+    backgroundColor:globalStyle.lightOrange, 
+    
+  }, 
+  btngoBack:{
+    borderRadius:10, 
+    paddingVertical: 9, 
+    paddingHorizontal:25, 
+    backgroundColor: "black", 
+    color: "white"
+  }, 
+  textRetour:{
+    color: "white", 
+    fontWeight:"bold"
+  }, 
+  btntextAdd:{
+    color: "black",
+    fontWeight:"bold", 
+    fontSize:16
+
   }
 });
