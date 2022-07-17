@@ -5,9 +5,19 @@ TouchableOpacity
 import React, {useEffect} from 'react';
 // import icons 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {useSelector} from 'react-redux';
-import globalStyle from '../styles/globalStyles'
+import {useSelector, useDispatch} from 'react-redux';
+import globalStyle from '../styles/globalStyles';
+// import de la cart 
+import { addToCart } from '../redux/reducers/actionAddToCart';
 const CourseInfo = ({navigation, route}) => {
+  // usedispatch pour recuperer les infos 
+  const dispach = useDispatch(); 
+  const handleAddToCart= ()=>{
+    dispach(addToCart(SelectedCourse))
+    // revenir à la page précedente :
+    navigation.goBack(); 
+    alert("Cours ajouté au panier Merci de votre confiance. "); 
+  }
   // recuperer les cours selon id
   const courseId = route.params.courseId;
   // console.log(courseId);
@@ -57,7 +67,8 @@ const CourseInfo = ({navigation, route}) => {
                     </View>
                  </TouchableOpacity>
                  <TouchableOpacity 
-                  onPress={() => alert('Ajouter le cours dans mon panier ')}
+                //  onPress={() => alert('Ajouter le cours dans mon panier ')}
+                  onPress={ handleAddToCart }
                  >
 
                     <View style={styles.btnAddToCart}>

@@ -21,7 +21,7 @@ const reducerCart = (state = initialState, action )=>{
         const newCourse = new PaieCourse(idCourse, price, title); 
         return {
             ...state, 
-            cartCourses: stte.cartCourses.concat(newCourse), 
+            cartCourses: state.cartCourses.concat(newCourse), 
             total: state.total+price
 
         }

@@ -4,7 +4,8 @@ import {View, StyleSheet, Text, FlatList} from 'react-native';
 import EmptyMsg from '../components/EmptyMsg';
 import { useSelector, useDispatch } from 'react-redux';
 import CoursesItem from '../components/CoursesItem';
-
+// import de addToCart 
+import { addToCart } from '../redux/reducers/actionAddToCart';
 const Landing = ({navigation}) => {
     // hook dispach pour l'ajout de ours 
     const dispach = useDispatch(); 
