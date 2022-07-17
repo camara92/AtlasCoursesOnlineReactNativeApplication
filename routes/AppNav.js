@@ -9,8 +9,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import AuthScreen from "./screens/AuthScreen";
 // import OfficeScreen from "./screens/OfficeScreen";
 // import HomeScreen from "./screens/HomeScreen";
@@ -25,36 +25,45 @@ import {
 import Cart from '../screens/Cart';
 import CourseInfo from '../screens/CourseInfo';
 import Landing from '../screens/Landing';
+import globalStyles from '../styles/globalStyles';
 
 const Stack = createNativeStackNavigator();
 
 function AppNav() {
-
   return (
-
-      <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator
+      // style header 
+      
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: globalStyles.green
+      }, 
+      headerTitleStyle:{fontWeight:"bold" }, 
+      headerTintColor: globalStyles.white
+      
+    }}
+      
+      >
         <Stack.Screen
-       
           name="Landing"
-          options={{ title: "Cours" }}
+          options={{title: 'Cours'}}
           component={Landing}
         />
-        <Stack.Screen
-          name="Cart"
-          options={{ title: "Cart" }}
-          component={Cart}
-        />
+        <Stack.Screen name="Cart" options={{title: 'Cart'}} component={Cart} />
         <Stack.Screen
           name="Details"
-          options={{ title: "Détails" }}
+          options={{title: 'Détails'}}
           component={CourseInfo}
+          // options pour afficher les infos en titre ou dans la suite de l'écran
+          options={({route}) => ({
+            title: route.params.title,
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
-   
   );
-};
+}
 
 const styles = StyleSheet.create({
   sectionContainer: {

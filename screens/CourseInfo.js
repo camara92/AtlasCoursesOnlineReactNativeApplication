@@ -9,12 +9,12 @@ const CourseInfo = ({navigation, route}) => {
 
   const SelectedCourse = useSelector(state => state.courses.existingCourses.find(course =>course.id===courseId));
 
-   useEffect(()=>{
-    navigation.setOptions(
-      {title: SelectedCourse.title}
-    )
-    //ajout de ce titre et affiche dans le header 
-   }, [navigation]); 
+  //  useEffect(()=>{
+  //   navigation.setOptions(
+  //     {title: SelectedCourse.title}
+  //   )
+  //   //ajout de ce titre et affiche dans le header 
+  //  }, [navigation]); 
 
   return (
     <View>
