@@ -26,7 +26,7 @@ const CoursesItem = props => {
           <Image source={{uri: props.imagee}} style={styles.image} />
         </View>
         <View style={styles.CourseContainerDetails}>
-          <Text style={styles.CourseTitle}>Titre: {props.titre}</Text>
+          <Text style={styles.CourseTitle}>{props.titre}</Text>
           <Text style={styles.CoursePrice}>
             {' '}
             {props.prix.toFixed(2)} &euro;
@@ -48,7 +48,7 @@ const CoursesItem = props => {
             <Text style={styles.iconReplaceIcons}>Voir </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={props.OnAddToCart}>
-            <Text style={styles.iconReplaceIcons}>Panier </Text>
+            <Text style={styles.iconReplaceIcons}>Ajouter </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -92,6 +92,8 @@ const styles = StyleSheet.create({
   CourseTitle: {
     color: globalStyles.green,
     fontSize: 16,
+    textTransform:"uppercase", 
+    fontWeight:"bold"
   },
   iconContainer: {
     flexDirection: 'row',
