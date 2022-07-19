@@ -1,6 +1,8 @@
 import PaieCourse from "../../data/PaidCourseModel"
 import { ADD_TO_CART } from "../constants";
 import { REMOVE_COURSE_CART } from "../constants";
+import { ADD_PAYMENT } from "../constants";
+
 const initialState = {
     // un array qui va contenir les cours existants 
     //id, price et le titre 
@@ -42,7 +44,9 @@ const reducerCart = (state = initialState, action )=>{
                 cartCourses: newCartCoursesArray,
                 total: state.total - coursePrice
             }
-
+            // paiement 
+            case ADD_PAYMENT: 
+                return initialState;
         default: 
            return state; 
     }

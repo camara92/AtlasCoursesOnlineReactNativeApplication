@@ -7,11 +7,16 @@ import { removeCourseCart } from '../redux/reducers/actionRemoveCourseCart';
 import EmptyMsg from '../components/EmptyMsg';
 import CoursesInCart from '../components/CoursesInCart';
 import globalStyles from '../styles/globalStyles';
+import { addPayment } from '../redux/reducers/actionPayment';
 const Cart = () => {
   // usedispatch de redux 
   const dispatch = useDispatch(); 
   const cartCourses = useSelector(state => state.cart.cartCourses);
   const total = useSelector(state => state.cart.total);
+  const handlepayment= (cartCourses, total)=>{
+    dispatch(addPayment(cartCourses, total))
+    alert("payement effectué"); 
+  }
   console.log(cartCourses);
   console.log(total);
   return (
@@ -39,7 +44,9 @@ const Cart = () => {
               </Text>
             </Text>
             <TouchableOpacity 
-          onPress={ ()=>alert("payer ")}
+          // onPress={ ()=>alert("payer ")}
+          // payment part
+          onPress={ ()=>handlepayment(cartCourses, total )}
           >
             <View style={styles.btnAddPaymentText}>
               <Text
