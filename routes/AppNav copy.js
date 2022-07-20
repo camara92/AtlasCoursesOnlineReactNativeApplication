@@ -25,6 +25,7 @@ import {
 import Cart from '../screens/Cart';
 import CourseInfo from '../screens/CourseInfo';
 import Landing from '../screens/Landing';
+import Payments from '../screens/Payments';
 import globalStyles from '../styles/globalStyles';
 import { HeaderButtons, Item} from 'react-navigation-header-buttons';
 
@@ -88,6 +89,8 @@ function AppNav() {
             title: route.params.title,
           })}
         />
+        {/* les achats  */}
+        <Stack.Screen name="Mes achats" options={{title: 'Mes achats'}} component={Payments} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,Button
+  View,
+  Button,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -26,11 +27,10 @@ import Cart from '../screens/Cart';
 import CourseInfo from '../screens/CourseInfo';
 import Landing from '../screens/Landing';
 import globalStyles from '../styles/globalStyles';
-import { HeaderButtons, Item} from 'react-navigation-header-buttons';
-
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
+import Payments from '../screens/Payments';
 // import de headerIcon
 import CustomHeaderIcon from '../components/CustomHeaderIcon';
-
 
 const Stack = createNativeStackNavigator();
 
@@ -38,45 +38,63 @@ function AppNav() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      // style header 
-      
-    screenOptions={
-      ({navigation})=> (
-        {
-      headerStyle: {
-        backgroundColor: globalStyles.green
-      }, 
-      headerTitleStyle:{fontWeight:"bold" }, 
-      headerTintColor: globalStyles.white, 
-      // les icones à droit du header 
-      headerRight:()=>(
-        // <HeaderButtons>
-        //   <Item 
+        // style header
 
-        //     title="Panier" 
-        //     iconName = "card"
+        screenOptions={({navigation}) => ({
+          headerStyle: {
+            backgroundColor: globalStyles.green,
+            AlignItems:"center"
+          },
+          headerTitleStyle: {fontWeight: 'bold'},
+          headerTintColor: globalStyles.white,
+          // les icones à droit du header
+          headerRight: () => (
+            // <HeaderButtons>
+            //   <Item
 
-        //   />
-        // </HeaderButtons>
-        <Button 
+            //     title="Panier"
+            //     iconName = "card"
+
+            //   />
+            // </HeaderButtons>
+            <Button
               style={styles.btnheader}
-              title="🛒"
-              color="white"
+              // title="🛒"
+              title="Mon panier"
+              color="red"
+            
               // onPress={() => alert('Bouton qui remplace l\'icon panier à voir ultérieurement')}
               onPress={() => navigation.navigate('Cart')}
             />
-      )
-      
-    }
-      )
-  
-    }
-      
-      >
+            // mes achats
+          ),
+          headerLeft: () => (
+            // <HeaderButtons>
+            //   <Item
+
+            //     title="Panier"
+            //     iconName = "card"
+
+            //   />
+            // </HeaderButtons>
+            <Button
+              style={styles.btnheader}
+              // title="🛒"
+              title="Achats"
+              color="black"
+              // onPress={() => alert('Bouton qui remplace l\'icon panier à voir ultérieurement')}
+              onPress={() => navigation.navigate('Payments')}
+            />
+            // mes achats
+          ),
+        })}>
         <Stack.Screen
           name="Landing"
           options={{title: 'Cours'}}
           component={Landing}
+          options={{
+            title: 'Catalogue',
+          }}
         />
         <Stack.Screen name="Cart" options={{title: 'Cart'}} component={Cart} />
         <Stack.Screen
@@ -87,6 +105,11 @@ function AppNav() {
           options={({route}) => ({
             title: route.params.title,
           })}
+        />
+        <Stack.Screen
+          name="Payments"
+          options={{title: 'Mes achats'}}
+          component={Payments}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -110,10 +133,9 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-  btnheader:{
-    color: "red"
-  }
- 
+  btnheader: {
+    color: 'red',
+  },
 });
 
 export default AppNav;

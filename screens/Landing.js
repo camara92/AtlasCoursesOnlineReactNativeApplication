@@ -45,6 +45,7 @@ const Landing = ({navigation}) => {
         
          />
       );
+    
     }
     return (
       <EmptyMsg text= "Il n'y a pas de cours à afficher ! 😎"/>
