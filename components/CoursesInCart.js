@@ -16,8 +16,9 @@ const CoursesInCart = (props) => {
       
       >
         {/* icone */}
+        {/* normalement ça doit être une icône dans la place du texte :  */}
         <View style={styles.btnDeleteToCart}>
-                        <Text style={styles.btntextDeleteToCart}>🚮</Text>
+                        <Text style={styles.btntextDeleteToCart}>supprimer </Text>
         </View>
 
       </TouchableOpacity>
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
 
         },
         titre:{
-            width:"60%", 
+            width:"50%", 
             // backgroundColor:"red"
 
         },
@@ -50,5 +51,6 @@ const styles = StyleSheet.create({
             
             // backgroundColor:"blue"
 
-        }
+        }, 
+        
 })

@@ -31,11 +31,12 @@ import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import Payments from '../screens/Payments';
 // import de headerIcon
 import CustomHeaderIcon from '../components/CustomHeaderIcon';
-
+import AuthUser from '../screens/Authentification/Auth';
 const Stack = createNativeStackNavigator();
 
-function AppNav() {
+function AppNav({navigation}) {
   return (
+    
     <NavigationContainer>
       <Stack.Navigator
         // style header
@@ -43,7 +44,7 @@ function AppNav() {
         screenOptions={({navigation}) => ({
           headerStyle: {
             backgroundColor: globalStyles.green,
-            AlignItems:"center"
+            AlignItems: 'center',
           },
           headerTitleStyle: {fontWeight: 'bold'},
           headerTintColor: globalStyles.white,
@@ -62,11 +63,12 @@ function AppNav() {
               // title="🛒"
               title="Mon panier"
               color="red"
-            
               // onPress={() => alert('Bouton qui remplace l\'icon panier à voir ultérieurement')}
               onPress={() => navigation.navigate('Cart')}
             />
             // mes achats
+            // page inscription 
+        
           ),
           headerLeft: () => (
             // <HeaderButtons>
@@ -85,8 +87,11 @@ function AppNav() {
               // onPress={() => alert('Bouton qui remplace l\'icon panier à voir ultérieurement')}
               onPress={() => navigation.navigate('Payments')}
             />
+            
             // mes achats
           ),
+        
+       
         })}>
         <Stack.Screen
           name="Landing"
@@ -111,8 +116,20 @@ function AppNav() {
           options={{title: 'Mes achats'}}
           component={Payments}
         />
+         <Stack.Screen
+          name="Inscription"
+          options={{title: 'Inscription'}}
+          component={AuthUser}
+        />
+         <Stack.Screen
+          name="AppNav"
+          options={{title: 'AppNav'}}
+          component={AuthUser}
+        />
       </Stack.Navigator>
     </NavigationContainer>
+
+    
   );
 }
 

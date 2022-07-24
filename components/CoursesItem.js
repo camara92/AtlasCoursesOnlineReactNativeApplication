@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import globalStyles from '../styles/globalStyles';
 //
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+//import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 // import des icons
 // import { MaterialIcons } from '@expo/vector-icons';
 // import { Icon } from 'react-native-vector-icons';
